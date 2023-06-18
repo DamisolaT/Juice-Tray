@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id ="@+id/layout_complement_menu"
+    tools:context=".ui.order.ComplementFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.juicetray.model.OrderViewModel" />
+
+        <variable
+            name="fragment"
+            type="com.example.juicetray.ui.order.ComplementMenuFragment" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/side_margin"
+        android:paddingEnd="@dimen/side_margin"
+        android:paddingBottom="@dimen/side_margin">
+
+    <RadioGroup
+        android:id="@+id/complement_options"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    <RadioButton
+        android:id="@+id/greenleaf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceBody1"
+        android:onClick="@{() -> viewModel.setComplement(@string/greenleaf)}"
+        android:text='@{viewModel.juicyItems["greenleaf"].name}'
+        tools:text="Complement 1" />
+
+    <TextView
+        android:id="@+id/greenleaf_description"
+        style="@style/Widget.JuiceItem.TextView.Info"
+        android:text='@{viewModel.juicyItems["greenleaf"].description}'
+        tools:text="Complement 1 description" />
+
+    <TextView
+        android:id="@+id/greenleaf_price"
+        style="@style/Widget.JuiceItem.TextView.Info"
+        android:paddingTop="@dimen/base_margin"
+        android:text='@{viewModel.juicyItems["greenleaf"].getFormattedPrice()}'
+        tools:text="$0.00" />
+
+    <View
+        style="@style/Widget.JuiceTray.Divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/greenleaf_description" />
+
+    <!-- TODO: set the accompaniment in the view model when the RadioButton is clicked -->
+    <RadioButton
+        android:id="@+id/cruciferous"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceBody1"
+        android:onClick="@{() -> viewModel.setComplement(@string/cruciferous)}"
+        android:text='@{viewModel.juicyItems["cruciferous"].name}'
+        tools:text="Complement 2" />
+
+        <TextView
+            android:id="@+id/cruciferous_description"
+            style="@style/Widget.JuiceItem.TextView.Info"
+            android:text='@{viewModel.juicyItems["cruciferous"].description}'
+            tools:text="Complement 2 description" />
+
+        <TextView
+            android:id="@+id/cruciferous_price"
+            style="@style/Widget.JuiceItem.TextView.Info"
+            android:paddingTop="@dimen/base_margin"
+            android:text='@{viewModel.juicyItems["cruciferous"].getFormattedPrice()}'
+            tools:text="$0.00" />
+
+        <View
+            style="@style/Widget.JuiceTray.Divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cruciferous_description" />
+
+        <!-- TODO: set the RadioButton text to the accompaniment name using the view model -->
+        <!-- TODO: set the accompaniment in the view model when the RadioButton is clicked -->
+        <RadioButton
+            android:id="@+id/marrow_vegetable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:onClick="@{() -> viewModel.setComplement(@string/marrow)}"
+            android:text='@{viewModel.juicyItems["marrow"].name}'
+            tools:text="Complement 3" />
+
+        <!-- TODO: set the text to the accompaniment description using the view model -->
+        <TextView
+            android:id="@+id/marrow_description"
+            style="@style/Widget.JuiceItem.TextView.Info"
+            android:text='@{viewModel.juicyItems["marrow"].description}'
+            tools:text="Complement 3 description" />
+
+        <!-- TODO: set the text to the accompaniment price using the view model -->
+        <TextView
+            android:id="@+id/marrow_price"
+            style="@style/Widget.JuiceItem.TextView.Info"
+            android:paddingTop="@dimen/base_margin"
+            android:text='@{viewModel.juicyItems["marrow"].getFormattedPrice()}'
+            tools:text="$0.00" />
+
+    </RadioGroup>
+
+    <View
+        android:id="@+id/divider"
+        style="@style/Widget.JuiceTray.Divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/base_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/complement_options" />
+
+    <!-- TODO: set the text to the current subtotal value from the view model -->
+    <TextView
+        android:id="@+id/subtotal"
+        style="@style/Widget.JuiceTray.TextView.Subtotal"
+        android:text="@{@string/subtotal(viewModel.subtotal)}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        tools:text="Subtotal $5.00"/>
+
+    <!-- TODO: cancel the order when clicked -->
+    <Button
+        android:id="@+id/cancel_button"
+        style="@style/Widget.Order.Button.Cancel"
+        app:layout_constraintEnd_toStartOf="@id/next_button"
+        android:onClick="@{() -> fragment.cancelOrder()}"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/next_button" />
+
+    <!-- TODO: go to the next screen when clicked -->
+    <Button
+        android:id="@+id/next_button"
+        style="@style/Widget.Order.Button.Next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/cancel_button"
+        android:onClick="@{() -> fragment.goToNextScreen()}"
+        app:layout_constraintTop_toBottomOf="@id/subtotal" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</layout>

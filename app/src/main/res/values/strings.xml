@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Juice Tray</string>
+    <string name="tile_start_order">Order</string>
+    <string name="title_coupons">Coupons</string>
+    <string name="title_entree_menu">Entrees</string>
+    <string name="title_side_menu">Sides</string>
+    <string name="title_accompaniment_menu">Accompaniments</string>
+    <string name="title_checkout">Checkout</string>
+    <string name="start_order">Start Order</string>
+    <string name="subtotal">Subtotal: %s</string>
+    <string name="tax">Tax: %s</string>
+    <string name="total">Total: %s</string>
+    <string name="next">Next</string>
+    <string name="order_summary">Order Summary</string>
+    <string name="submit">Submit Order</string>
+    <string name="submit_order">Order Submitted!</string>
+    <string name="place_order">Place Order</string>
+    <string name="pineapple">pineapple</string>
+    <string name="lemon">lemon</string>
+    <string name="pomegranate">pomegranate</string>
+    <string name="berries">berries</string>
+    <string name="apple">apple</string>
+    <string name="java">java</string>
+    <string name="custard">custard</string>
+    <string name="sugar">sugar</string>
+    <string name="greenleaf">greenleaf</string>
+    <string name="cruciferous">cruciferous</string>
+    <string name="marrow">marrow</string>
+</resources>

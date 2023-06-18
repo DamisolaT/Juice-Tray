@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.order.OpenMenuFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.juicetray.model.OrderViewModel" />
+        
+        <variable
+            name="fragment"
+            type="com.example.juicetray.ui.order.OpenMenuFragment" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/side_margin"
+            android:paddingEnd="@dimen/side_margin"
+            android:paddingBottom="@dimen/side_margin">
+
+
+            <RadioGroup
+                android:id="@+id/open_options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <!-- TODO: set the entree in the view model when the RadioButton is clicked -->
+            <RadioButton
+                android:id="@+id/pineapple_juice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:onClick="@{() -> viewModel.setOpen(@string/pineapple)}"
+                android:text='@{viewModel.juicyItems["pineapple"].name}'
+                tools:text="Open 1" />
+
+            <TextView
+                android:id="@+id/pineapple_description"
+                style="@style/Widget.JuiceItem.TextView.Info"
+                android:text='@{viewModel.JuicyItems["pineapple"].description}'
+                tools:text="Open 1 description" />
+
+            <TextView
+                android:id="@+id/pineapple_price"
+                style="@style/Widget.JuiceItem.TextView.Info"
+                android:paddingTop="@dimen/base_margin"
+                android:text='@{viewModel.juicyItems["pineapple"].getFormattedPrice()}'
+                tools:text="$0.00" />
+
+            <View
+                style="@style/Widget.JuiceTray.Divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pineapple_description" />
+
+            <RadioButton
+                android:id="@+id/lemon_juice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:onClick="@{() -> viewModel.setOpen(@string/lemon)}"
+                android:text='@{viewModel.juicyItems["lemon"].name}'
+                tools:text="Open 2" />
+
+            <TextView
+                android:id="@+id/lemon_description"
+                style="@style/Widget.JuiceItem.TextView.Info"
+                android:text='@{viewModel.juicyItems["lemon"].description}'
+                tools:text="Open 2 description" />
+
+            <TextView
+                android:id="@+id/lemon_price"
+                style="@style/Widget.JuiceItem.TextView.Info"
+                android:paddingTop="@dimen/base_margin"
+                android:text='@{viewModel.juicyItems["lemon"].getFormattedPrice()}'
+                tools:text="$0.00" />
+
+            <View
+                style="@style/Widget.JuiceTray.Divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lemon_description" />
+
+            <RadioButton
+                android:id="@+id/pomegranate_juice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:onClick="@{() -> viewModel.setOpen(@string/pomegranate)}"
+                android:text='@{viewModel.juicyItems["pomegranate"].name}'
+                tools:text="Open 3" />
+
+            <TextView
+                android:id="@+id/pomegranate_description"
+                style="@style/Widget.JuiceItem.TextView.Info"
+                android:text='@{viewModel.juicyItems["pomegranate"].description}'
+                tools:text="Open 3 description" />
+
+            <TextView
+                android:id="@+id/pomegranate_price"
+                style="@style/Widget.JuiceItem.TextView.Info"
+                android:paddingTop="@dimen/base_margin"
+                android:text='@{viewModel.juicyItems["pomegranate"].getFormattedPrice()}'
+                tools:text="$0.00" />
+
+            <View
+                style="@style/Widget.JuiceTray.Divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pomegranate_description" />
+
+
+            <RadioButton
+                android:id="@+id/berries_juice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:onClick="@{() -> viewModel.setOpen(@string/berries)}"
+                android:text='@{viewModel.juicyItems["berries"].name}'
+                tools:text="Open 4" />
+
+            <TextView
+                android:id="@+id/berries_description"
+                style="@style/Widget.JuiceItem.TextView.Info"
+                android:text='@{viewModel.juicyItems["berries"].description}'
+                tools:text="Open 4 description" />
+
+            <TextView
+                android:id="@+id/berries_price"
+                style="@style/Widget.JuiceItem.TextView.Info"
+                android:paddingTop="@dimen/base_margin"
+                android:text='@{viewModel.juicyItems["berries"].getFormattedPrice()}'
+                tools:text="$0.00" />
+
+            </RadioGroup>
+
+            <View
+                android:id="@+id/divider"
+                style="@style/Widget.JuiceTray.Divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/base_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/open_options" />
+
+            <!-- TODO: set the text to the current subtotal value from the view model -->
+            <TextView
+                android:id="@+id/subtotal"
+                style="@style/Widget.JuiceTray.TextView.Subtotal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider"
+                android:text="@{@string/subtotal(viewModel.subtotal)}"
+                tools:text="Subtotal $5.00"/>
+
+            <!-- TODO: cancel the order when clicked -->
+            <Button
+                android:id="@+id/cancel_button"
+                style="@style/Widget.Order.Button.Cancel"
+                app:layout_constraintEnd_toStartOf="@id/next_button"
+                android:onClick="@{() -> fragment.cancelOrder()}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/next_button" />
+
+            <!-- TODO: go to the next screen when clicked -->
+            <Button
+                android:id="@+id/next_button"
+                style="@style/Widget.Order.Button.Next"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:onClick="@{() -> fragment.goToNextScreen()}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cancel_button"
+                app:layout_constraintTop_toBottomOf="@id/subtotal" />
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+
+</layout>

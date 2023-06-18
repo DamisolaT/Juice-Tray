@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/movable_navigation"
+    app:startDestination="@id/placedOrder">
+
+    <fragment
+        android:id="@+id/placedOrder"
+        android:name="com.example.juicetray.ui.order.PlacedOrderFragment"
+        android:label="fragment_placed_order"
+        tools:layout="@layout/fragment_placed_order" >
+        <action
+            android:id="@+id/action_placedOrderFragment_to_openMenuFragment"
+            app:destination="@id/openMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/openMenuFragment"
+        android:name="com.example.juicetray.ui.order.OpenMenuFragment"
+        android:label="fragment_open_menu"
+        tools:layout="@layout/fragment_open_menu" >
+        <action
+            android:id="@+id/action_openMenuFragment_to_sideMenuFragment"
+            app:destination="@id/sideMenuFragment" />
+
+        <action
+            android:id="@+id/action_openMenuFragment_to_placedOrderFragment"
+            app:destination="@id/placedOrder" />
+    </fragment>
+    <fragment
+        android:id="@+id/sideMenuFragment"
+        android:name="com.example.juicetray.ui.order.SideMenuFragment"
+        android:label="fragment_side_menu"
+        tools:layout="@layout/fragment_side_menu" >
+        <action
+            android:id="@+id/action_sideMenuFragment_to_complementMenuFragment"
+            app:destination="@id/complementMenuFragment" />
+
+        <action
+            android:id="@+id/action_sideMenuFragment_to_placeOrderFragment"
+            app:destination="@id/placedOrder" />
+    </fragment>
+    <fragment
+        android:id="@+id/complementMenuFragment"
+        android:name="com.example.juicetray.ui.order.ComplementMenuFragment"
+        android:label="ComplementMenuFragment"
+        tools:layout="@layout/fragment_complement_menu">
+        <action
+            android:id="@+id/action_complementMenuFragment_to_checkoverFragment"
+            app:destination="@id/checkoverFragment" />
+
+        <action
+            android:id="@+id/action_complementMenuFragment_to_placeOrderFragment"
+            app:destination="@id/placedOrder" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkoverFragment"
+        android:name="com.example.juicetray.ui.order.CheckoverFragment"
+        android:label="fragment_checkover"
+        tools:layout="@layout/fragment_checkover" >
+
+    <action
+        android:id="@+id/action_checkoverFragment_to_placeOrderFragment"
+        app:destination="@id/placedOrder" />
+    </fragment>
+</navigation>
